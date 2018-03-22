@@ -13,9 +13,10 @@ import java.util.Date;
  * @author bianca.149817
  */
 public class Professor extends Pessoa {
- private  ArrayList disciplina = new ArrayList();
- private int cargaHoraria;
- private float valorHora,salario;
+
+    private ArrayList disciplina = new ArrayList();
+    private int cargaHoraria;
+    private float valorHora, salario;
 
     public Professor(int cargaHoraria, float valorHora, String nome, String rg, String cpf, Date dataNascimento) {
         super(nome, rg, cpf, dataNascimento);
@@ -23,19 +24,20 @@ public class Professor extends Pessoa {
         this.valorHora = valorHora;
         this.salario = this.calcularsalario(cargaHoraria, valorHora);
     }
- 
- public float calcularsalario(int cargaHoraria,float valorHora){
-     return cargaHoraria * valorHora;
- }
+
+    public float calcularsalario(int cargaHoraria, float valorHora) {
+        return cargaHoraria * valorHora;
+    }
 
     @Override
     public String toString() {
-        return super.toString()+ "Professor{" + "Disciplina = " + disciplina + 
-                "\n Carga Horaria = " + cargaHoraria +
-                "\n valor Hora = " + valorHora + 
-                "\n Salario = " + salario +'}';
+        return super.toString() + "Professor: \n"
+                + "Disciplina = " + disciplina
+                + "\n Carga Horaria = " + cargaHoraria
+                + "\n Valor Hora = " + valorHora
+                + "\n Salário = " + salario;
     }
-   
+
     public ArrayList getDisciplina() {
         return disciplina;
     }
@@ -67,6 +69,5 @@ public class Professor extends Pessoa {
     public void setSalario(float salario) {
         this.salario = salario;
     }
-   
-   
+
 }

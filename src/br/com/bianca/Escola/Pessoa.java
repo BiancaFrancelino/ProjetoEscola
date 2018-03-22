@@ -12,50 +12,48 @@ import java.util.Date;
  *
  * @author bianca.149817
  */
-public abstract class Pessoa  {
-private String nome,rg,cpf;
-private int idade;
-private Date dataNascimento;
+public abstract class Pessoa {
 
- public Pessoa(String nome, String rg, String cpf, Date dataNascimento) {
+    private String nome, rg, cpf;
+    private int idade;
+    private Date dataNascimento;
+
+    public Pessoa(String nome, String rg, String cpf, Date dataNascimento) {
         this.nome = nome;
         this.rg = rg;
         this.cpf = cpf;
         this.idade = this.calculaIdade(dataNascimento);
         this.dataNascimento = dataNascimento;
     }
- 
-public static int calculaIdade(java.util.Date dataNasc) {
 
-    Calendar dataNascimento = Calendar.getInstance();  
-    dataNascimento.setTime(dataNasc); 
-    Calendar hoje = Calendar.getInstance();  
+    public static int calculaIdade(java.util.Date dataNasc) {
 
-    int idade = hoje.get(Calendar.YEAR) - dataNascimento.get(Calendar.YEAR); 
+        Calendar dataNascimento = Calendar.getInstance();
+        dataNascimento.setTime(dataNasc);
+        Calendar hoje = Calendar.getInstance();
 
-    if (hoje.get(Calendar.MONTH) < dataNascimento.get(Calendar.MONTH)) {
-      idade--;  
-    } 
-    else 
-    { 
-        if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
-    idade--; 
+        int idade = hoje.get(Calendar.YEAR) - dataNascimento.get(Calendar.YEAR);
+
+        if (hoje.get(Calendar.MONTH) < dataNascimento.get(Calendar.MONTH)) {
+            idade--;
+        } else {
+            if (hoje.get(Calendar.MONTH) == dataNascimento.get(Calendar.MONTH) && hoje.get(Calendar.DAY_OF_MONTH) < dataNascimento.get(Calendar.DAY_OF_MONTH)) {
+                idade--;
+            }
         }
-    }
 
-    return idade;
-} 
+        return idade;
+    }
 
     @Override
     public String toString() {
-        return "Pessoa{" + "Nome= " + nome + 
-                "\n RG = " + rg + 
-                "\n CPF = " + cpf + 
-                "\n Idade = " + idade +
-                "\n Data Nascimento = " + dataNascimento + '}';
+        return "Pessoa: \n"
+                + "Nome = " + nome
+                + "\n RG = " + rg
+                + "\n CPF = " + cpf
+                + "\n Idade = " + idade
+                + "\n Data Nascimento = " + dataNascimento + "\n";
     }
-
-
 
     public Date getDataNascimanto() {
         return dataNascimento;
@@ -64,8 +62,6 @@ public static int calculaIdade(java.util.Date dataNasc) {
     public void setDataNascimanto(Date dataNascimanto) {
         this.dataNascimento = dataNascimanto;
     }
-   
-   
 
     public String getNome() {
         return nome;
@@ -99,10 +95,4 @@ public static int calculaIdade(java.util.Date dataNasc) {
         this.idade = idade;
     }
 
-   
-   
-   
-
-    
-   
 }

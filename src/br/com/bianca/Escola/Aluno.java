@@ -13,23 +13,23 @@ import java.util.Date;
  * @author bianca.149817
  */
 public class Aluno extends Pessoa {
- private int matricula ;
- private ArrayList disciplina = new ArrayList();
- private Date dataMatricula;
 
-    public Aluno(int matricula,  Date dataMatricula, String nome, String rg, String cpf, Date dataNascimento) {
+    private int matricula;
+    private ArrayList disciplina = new ArrayList();
+    private Date dataMatricula;
+
+    public Aluno(int matricula, Date dataMatricula, String nome, String rg, String cpf, Date dataNascimento) {
         super(nome, rg, cpf, dataNascimento);
-        this.matricula = matricula; 
+        this.matricula = matricula;
         this.dataMatricula = dataMatricula;
     }
- 
- 
 
     @Override
     public String toString() {
-        return super.toString()+ "Aluno{" + "Matricula = " + matricula + 
-                "\n Disciplina = " + disciplina + 
-                "\n Data Matricula = " + dataMatricula + '}';
+        return super.toString() + "Aluno: \n"
+                + "Matricula = " + matricula
+                + "\n Disciplina = " + disciplina
+                + "\n Data Matricula = " + dataMatricula;
     }
 
     public int getMatricula() {
@@ -55,9 +55,5 @@ public class Aluno extends Pessoa {
     public void setDataMatricula(Date dataMatricula) {
         this.dataMatricula = dataMatricula;
     }
- 
- 
 
-   
- 
 }

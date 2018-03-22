@@ -11,21 +11,23 @@ import java.util.Date;
  *
  * @author bianca.149817
  */
-public class Disciplina{
-   private String nome,departamento;
-   private char status;
+public class Disciplina {
+
+    private String nome, departamento;
+    private char status;
 
     public Disciplina(String nome, String departamento, char status) {
         this.nome = nome;
         this.departamento = departamento;
         this.status = status;
-    }  
-   
+    }
+
     @Override
     public String toString() {
-        return "Disciplina{" + "Nome = " + nome +
-                "\n Departamento = " + departamento + 
-                "\n Status = " + status + '}';
+        return "Disciplinas: \n"
+                + "Nome = " + nome
+                + "\n Departamento = " + departamento
+                + "\n Status = " + status;
     }
 
     public String getNome() {
@@ -51,6 +53,5 @@ public class Disciplina{
     public void setStatus(char status) {
         this.status = status;
     }
-   
-   
+
 }
