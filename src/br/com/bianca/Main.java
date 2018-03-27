@@ -15,6 +15,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.text.StyledEditorKit;
 
 /**
  *
@@ -27,7 +28,8 @@ public class Main {
      */
     public static void main(String[] args) throws ParseException {
         int escMenu = 0;
-        int escolha = 0;
+        int escolhaC = 0;
+        int escolhaN = 0;
         ArrayList<Disciplina> materias = new ArrayList<>();
         ArrayList<Aluno> alunos = new ArrayList<>();
         ArrayList<Professor> prof = new ArrayList<>();
@@ -37,8 +39,9 @@ public class Main {
                     + "1. Cadastro Disciplinas: \n"
                     + "2. Cadastro de Alunos: \n"
                     + "3. Cadastro de Professores: \n"
-                    + "4. Consultar: \n"
-                    + "5. Sair"));
+                    + "4. Consultar por código: \n"
+                    + "5. Colsultar por nome: \n"
+                    + "6. Sair"));
             switch (escMenu) {
                 case 1: {
                     do {
@@ -110,12 +113,12 @@ public class Main {
                 }
                 case 4: {
                     do {
-                        escolha = Integer.parseInt(JOptionPane.showInputDialog("Consultar: \n"
+                        escolhaC = Integer.parseInt(JOptionPane.showInputDialog("Consultar por código: \n"
                                 + "1. Consultar Disciplina; \n "
                                 + "2. Consultar Alunos: \n"
                                 + "3. Consultar Professores: \n"
                                 + "4. Sair \n"));
-                        switch (escolha) {
+                        switch (escolhaC) {
                             case 1: {
                                 do {
                                     JOptionPane.showConfirmDialog(null, materias.toString());
@@ -138,11 +141,55 @@ public class Main {
                             break;
 
                         }
-                    } while (escMenu != 4);
+                    } while (escolhaC != 4);
+                }
+                case 5:{
+                     do {
+                        escolhaN = Integer.parseInt(JOptionPane.showInputDialog("Consultar por nome: \n"
+                                + "1. Consultar Disciplina: \n "
+                                + "2. Consultar Alunos: \n"
+                                + "3. Consultar Professores: \n"
+                                + "4. Sair \n"));
+                        switch (escolhaN) {
+                            case 1: {
+                                do {
+                                    String matExistente = " ";                                        
+                                    for (Disciplina materia : materias) {
+                                        matExistente += "\n" + materias.indexOf(materia) + " : " + materia.getNome();                                
+                                    }
+                                    int inf = Integer.parseInt(JOptionPane.showInputDialog("Informe a matéria que deseja:"+ matExistente));
+                                     JOptionPane.showConfirmDialog(null, materias.get(inf).toString());
+                                    
+                                } while ((JOptionPane.showConfirmDialog(null, "Deseja continuar a consultar a Disciplina?")) == 0);
+                                break;
+                            }
+                            case 2: {
+                                 String aluExistente = " ";   
+                                for (Aluno aluno : alunos) {
+                                     aluExistente += "\n" + alunos.indexOf(aluno) + " : " + aluno.getNome();
+                                    }
+                                int inf = Integer.parseInt(JOptionPane.showInputDialog("Informe a matéria que deseja:"+ aluExistente));
+                                     JOptionPane.showConfirmDialog(null, alunos.get(inf).toString());
+
+                            }while ((JOptionPane.showConfirmDialog(null, "Deseja continuar a consultar o Aluno?")) == 0);
+                            break;
+
+                            case 3: {
+                                 String profExistente = " ";   
+                                for (Professor professor : prof) {
+                                  profExistente += "\n" + prof.indexOf(professor) + " : " + professor.getNome();
+                                }
+                                int inf = Integer.parseInt(JOptionPane.showInputDialog("Informe a matéria que deseja:"+ profExistente));
+                                     JOptionPane.showConfirmDialog(null, prof.get(inf).toString());
+                            }
+                            while ((JOptionPane.showConfirmDialog(null, "Deseja continuar a consultar o Professor?")) == 0);
+                            break;
+                         }         
+                     }while (escolhaN != 4);
                 }
             }
 
-        } while (escMenu != 5);
+        } while (escMenu != 6);
 
     }
 }
